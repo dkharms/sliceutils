@@ -1,5 +1,11 @@
 package sliceutils
 
+// Unique returns unique elements from slice.
+//
+// Example:
+//
+//	>>> Unique([]int{1, 1, 2, 2})
+//	<<< []int{1, 2}
 func Unique[T comparable](s []T) []T {
 	var (
 		unique = make([]T, 0, len(s)/2)
@@ -16,6 +22,7 @@ func Unique[T comparable](s []T) []T {
 	return unique
 }
 
+// Filter returns values from slice which satisfies given predicate.
 func Filter[T any](s []T, f func(T) bool) []T {
 	passed := make([]T, 0, len(s)/2)
 
@@ -28,6 +35,7 @@ func Filter[T any](s []T, f func(T) bool) []T {
 	return passed
 }
 
+// GroupBy return hashmap with values grouped by keys.
 func GroupBy[K comparable, V any](s []V, f func(V) K) map[K][]V {
 	groups := make(map[K][]V)
 
