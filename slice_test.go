@@ -97,3 +97,29 @@ func TestGroupBy(t *testing.T) {
 		}
 	}
 }
+
+func TestIntersection(t *testing.T) {
+	type testCase[T comparable] struct {
+		x, y     []T
+		expected []T
+	}
+
+	cases := []testCase[int]{
+		{
+			x:        []int{4, 5, 6},
+			y:        []int{1, 1, 2, 3, 3},
+			expected: []int{},
+		},
+		{
+			x:        []int{1, 2, 3},
+			y:        []int{1, 1, 2, 3, 3},
+			expected: []int{1, 2, 3},
+		},
+	}
+
+	for _, testCase := range cases {
+		if actual := Intersect(testCase.x, testCase.y); !reflect.DeepEqual(actual, testCase.expected) {
+			t.Fatalf("expected %v, got %v", testCase.expected, actual)
+		}
+	}
+}
