@@ -1,11 +1,6 @@
 package sliceutils
 
 // Unique returns unique elements from slice.
-//
-// Example:
-//
-//	>>> Unique([]int{1, 1, 2, 2})
-//	<<< []int{1, 2}
 func Unique[T comparable](s []T) []T {
 	var (
 		unique = make([]T, 0, len(s)/2)
