@@ -41,3 +41,23 @@ func GroupBy[K comparable, V any](s []V, f func(V) K) map[K][]V {
 
 	return groups
 }
+
+func Intersect[T comparable](x, y []T) []T {
+	var (
+		seen         = make(map[T]int)
+		intersection = make([]T, 0)
+	)
+
+	for i := range x {
+		seen[x[i]]++
+	}
+
+	for i := range y {
+		if counter, ok := seen[y[i]]; ok && counter > 0 {
+			intersection = append(intersection, y[i])
+			seen[y[i]]--
+		}
+	}
+
+	return intersection
+}
