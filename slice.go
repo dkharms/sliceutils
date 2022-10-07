@@ -67,6 +67,7 @@ func Intersect[T comparable](x, y []T) []T {
 	return intersection
 }
 
+// Contains returns true if slice contains element.
 func Contains[T comparable](v T, s ...T) bool {
 	for i := range s {
 		if v == s[i] {
@@ -77,6 +78,8 @@ func Contains[T comparable](v T, s ...T) bool {
 	return false
 }
 
+// FindIndex return index of element in slice.
+// If not found returns -1.
 func FindIndex[T comparable](v T, s ...T) int {
 	for i := range s {
 		if v == s[i] {
@@ -87,6 +90,7 @@ func FindIndex[T comparable](v T, s ...T) int {
 	return -1
 }
 
+// Reverse reverses slice in-place.
 func Reverse[T any](s ...T) []T {
 	for i, j := 0, len(s)-1; i < j; i, j = i+1, j-1 {
 		s[i], s[j] = s[j], s[i]
@@ -95,6 +99,7 @@ func Reverse[T any](s ...T) []T {
 	return s
 }
 
+// Map modifies each element of slice in-place.
 func Map[T any](f func(T) T, s ...T) {
 	for i := range s {
 		s[i] = f(s[i])
