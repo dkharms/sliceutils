@@ -3,3 +3,5 @@
 ## sliceutils
 
 Some generic stuff for slices.
+
+Here you can find frequently used methods for slices.
