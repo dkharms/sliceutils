@@ -8,10 +8,12 @@ Here you can find frequently used methods for slices.
 
 ### Available methods
 
-- ```go
+- 
+```go
 func Unique[T comparable](s ...T) []T {
 ```
 
-- ```go
+-
+```go
 func Filter[T any](f func(T) bool, s ...T) []T {
 ```
