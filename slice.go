@@ -107,3 +107,15 @@ func Map[T any](f func(T) T, s ...T) []T {
 
 	return s
 }
+
+func CountWithPredicate[T any](f func(T) bool, s ...T) int {
+	var counter int
+
+	for i := range s {
+		if f(s[i]) {
+			counter++
+		}
+	}
+
+	return counter
+}

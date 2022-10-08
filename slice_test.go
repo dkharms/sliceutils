@@ -232,3 +232,34 @@ func TestMap(t *testing.T) {
 		}
 	}
 }
+
+func TestCountWithPredicate(t *testing.T) {
+	type testCase[T comparable] struct {
+		x        []T
+		f        func(T) bool
+		expected int
+	}
+
+	cases := []testCase[int]{
+		{
+			x: []int{4, 5, 6},
+			f: func(x int) bool {
+				return x%2 == 0
+			},
+			expected: 2,
+		},
+		{
+			x: []int{4, 5, 6},
+			f: func(x int) bool {
+				return x%2 != 0
+			},
+			expected: 1,
+		},
+	}
+
+	for _, testCase := range cases {
+		if passed := CountWithPredicate(testCase.f, testCase.x...); !reflect.DeepEqual(passed, testCase.expected) {
+			t.Fatalf("expected %v, got %v", testCase.expected, passed)
+		}
+	}
+}
