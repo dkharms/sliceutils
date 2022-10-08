@@ -189,6 +189,10 @@ func TestReverse(t *testing.T) {
 			x:        []int{4, 5, 6},
 			expected: []int{6, 5, 4},
 		},
+		{
+			x:        []int{1},
+			expected: []int{1},
+		},
 	}
 
 	for _, testCase := range cases {
@@ -212,6 +216,13 @@ func TestMap(t *testing.T) {
 				return x
 			},
 			expected: []int{4, 5, 6},
+		},
+		{
+			x: []int{4, 5, 6},
+			f: func(x int) int {
+				return x * x
+			},
+			expected: []int{16, 25, 36},
 		},
 	}
 
