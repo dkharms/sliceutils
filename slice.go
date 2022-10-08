@@ -100,8 +100,10 @@ func Reverse[T any](s ...T) []T {
 }
 
 // Map modifies each element of slice in-place.
-func Map[T any](f func(T) T, s ...T) {
+func Map[T any](f func(T) T, s ...T) []T {
 	for i := range s {
 		s[i] = f(s[i])
 	}
+
+	return s
 }
