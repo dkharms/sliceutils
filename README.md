@@ -9,9 +9,12 @@ Here you can find frequently used methods for slices.
 ### Available methods
 
 ```go
-func Unique[T comparable](s ...T) []T {
+func Unique[T comparable](s ...T) []T
 ```
+Unique returns unique elements from slice.
+
 
 ```go
-func Filter[T any](f func(T) bool, s ...T) []T {
+func Filter[T any](f func(T) bool, s ...T) []T
 ```
+Filter returns values from slice which satisfies given predicate.
