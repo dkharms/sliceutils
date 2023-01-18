@@ -1,3 +1,4 @@
+[![Go Report Card](https://goreportcard.com/badge/github.com/dkharms/sliceutils)](https://goreportcard.com/report/github.com/dkharms/sliceutils)
 [![CI](https://github.com/dkharms/sliceutils/actions/workflows/main-workflow.yml/badge.svg?branch=main)](https://github.com/dkharms/sliceutils/actions/workflows/main-workflow.yml)
 
 ## sliceutils
